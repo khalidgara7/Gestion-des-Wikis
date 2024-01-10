@@ -1,17 +1,31 @@
 <?php
 
-class Connection
+Final class Connection
 {
-    private  $host = "localhost";
-    private  $user = "root";
-    private  $password = "";
-    private  $bdname = "wiki";
+    private static $instance;
+    private $PDO;
 
-    protected function connect()
+    private function __construct()
+        {
+            $dbHost = DB_HOST;
+            $dbUser = DB_USERNAME;
+            $dbPass = DB_PASSWORD;
+            $dbName = DB_NAME;
+
+            $DNS = "mysql:host=" . $dbHost . ";dbname=" . $dbName;
+            $this->PDO = new PDO($DNS, $dbUser, $dbPass);
+            $this->PDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        }
+    public static function getInstance()
     {
-        $conn = 'mysql:host=' . $this->host . 'bdname=' . $this->bdname;
-        $db = new PDO($conn, $this->user, $this->password);
-        $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_ASSOC);
-        return $db;
+
+        if (!self::$instance) {
+            self::$instance = new self();
+        }
+        return self::$instance;
+    }
+    public function getConnection()
+    {
+        return $this->PDO;
     }
 }

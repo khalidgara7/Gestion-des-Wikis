@@ -19,6 +19,7 @@ class Router
     public function dispatch($uri, $method)
     {
         if (array_key_exists($uri, $this->router[$method] ?? array())) {
+
             $this->router[$method][$uri]();
 
         }else {

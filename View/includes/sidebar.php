@@ -27,6 +27,13 @@
     <nav>
         <ul>
             <li>
+                <a href="/dashboard">
+                    <span class="rect"></span>
+                    <span class="circle"></span>
+                    Dashboard
+                </a>
+            </li>
+            <li>
                 <a href="/home">
                     <span class="rect"></span>
                     <span class="circle"></span>
@@ -34,38 +41,24 @@
                 </a>
             </li>
             <li>
-                <a href="/article">
+                <a href="/wikis">
                     <span class="rect"></span>
                     <span class="circle"></span>
-                    Articles
+                    Wikis
                 </a>
             </li>
             <li>
-                <a href="#projects">
+                <a href="/login">
                     <span class="rect"></span>
                     <span class="circle"></span>
-                    Recent Work
+                     Login
                 </a>
             </li>
             <li>
-                <a href="#video">
+                <a href="/logout">
                     <span class="rect"></span>
                     <span class="circle"></span>
-                    Presentation
-                </a>
-            </li>
-            <li>
-                <a href="#blog">
-                    <span class="rect"></span>
-                    <span class="circle"></span>
-                    Blog Entires
-                </a>
-            </li>
-            <li>
-                <a href="#contact">
-                    <span class="rect"></span>
-                    <span class="circle"></span>
-                    Contact Us
+                    Log-out
                 </a>
             </li>
         </ul>

@@ -8,10 +8,11 @@ class HomeController
         require __DIR__."/../../View/Home.php";
     }
 
-    public static function Arcticle()
+    public static function wikis()
     {
-        require __DIR__."/../../View/Articles.php";
+        require __DIR__."/../../View/Wikis.php";
     }
+
 
 
 }
