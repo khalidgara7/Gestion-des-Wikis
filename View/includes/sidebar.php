@@ -48,7 +48,7 @@
                 </a>
             </li>
             <li>
-                <a href="/login">
+                <a href="/loginview">
                     <span class="rect"></span>
                     <span class="circle"></span>
                      Login

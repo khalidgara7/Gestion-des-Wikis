@@ -44,31 +44,31 @@ include '../View/includes/sidebar.php';
 </nav>
 <div class="form-wrapper">
     <h2>Sign In</h2>
-    <form action="#">
+    <form action="/signup" method="post">
         <div class="form-control">
-            <input type="text" required>
+            <input name="full_name" type="text" required>
             <label>Full-name</label>
         </div>
          <div class="form-control">
-            <input type="date" required>
+            <input type="date" name="birthday" required>
             <label></label>
         </div>
 
         <div class="form-control">
-            <input type="email" required>
+            <input name="email" type="email" required>
             <label>Email</label>
         </div>
         <div class="form-control">
-            <input type="password" required>
+            <input name="password" type="password" required>
             <label>Password</label>
         </div>
         <div class="form-control">
-            <input type="password" required>
+            <input name="c_password"  type="password" required>
             <label>confirmed Password</label>
         </div>
         <button type="submit">Register now</button>
-        <button type="submit" class="btn-primary">Back</button>
-        <div class="form-help">
+<!--        <button type="submit" class="btn-primary">Back</button>
+-->        <div class="form-help">
             <div class="remember-me">
                 <input type="checkbox" id="remember-me">
                 <label for="remember-me">Remember me</label>

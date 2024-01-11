@@ -21,13 +21,31 @@ $route->get('/home', function () { HomeController::index(); });
 $route->get('/wikis', function (){HomeController::wikis(); });
 
 // Display Authentication pages.
+
+    if(isset($_SESSION['role']))
+    {
+        if(['role'] == 'admin'){
+            $route->get('/', function (){AuthenticationController::dashboard(); });
+        }elseif ($_SESSION['role'] == 'author')
+    {
+    $route->get('/wikis', function (){HomeController::wikis(); });
+    }else
+        {
+            echo "page Not Found";
+        }
+    }
+
+
 $route->get('/logout', function (){AuthenticationController::logout(); });
 
-$route->get('/login', function (){AuthenticationController::loginView(); });
+$route->get('/loginview', function (){AuthenticationController::loginView(); });
 
-$route->get('/login', function (){AuthenticationController::login(); });
+$route->post('/login', function (){
+    (new App\Controllers\AuthenticationController)->login(); });
 
-$route->get('/register', function (){AuthenticationController::register(); });
+$route->get('/register', function (){AuthenticationController::registerview(); });
+
+$route->post('/signup', function (){AuthenticationController::register(); });
 
 
 // using post

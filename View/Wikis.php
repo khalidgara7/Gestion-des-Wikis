@@ -57,63 +57,19 @@ include '../View/includes/sidebar.php';
                         </div>
 
                         <section id="first-tab-group" class="tabgroup">
-                            <section class="search-sec p-5 ">
-                                <div class="container ">
-                                    <form action="#" method="post" novalidate="novalidate">
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="row d-flex justify-content-end align-items-center">
-                                                    <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                                        <input type="text" class="form-control search-slt" placeholder="Enter Pickup City">
-                                                    </div>
-                                                    <div class="col-lg-1 col-md-1 col-sm-12 p-0">
-                                                        <button type="button" class="btn btn-primary wrn-btn">Search</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </section>
-                            <div id="tab1">
-                                <ul>
-                                    <li>
-                                        <div class="item">
-                                            <img src="img/blog_1.jpg" alt="">
-                                            <div class="text-content">
-                                                <h4>Integer ultrices augue</h4>
-                                                <h5>Category</h5>
-                                                <span>25 July 2018</span>
-                                                <p>Nam vel egestas nisi. Nullam lobortis magna at enim venenatis luctus. Nam
-                                                    finibus, mauris eu dictum iaculis, dolor tortor cursus quam, in volutpat
-                                                    augue lectus sed magna. Integer mollis lorem quis ipsum maximus
-                                                    finibus.</p>
 
-                                                <div class="accent-button button">
-                                                    <a href="#contact">Continue Reading</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="item">
-                                            <img src="img/blog_2.jpg" alt="">
-                                            <div class="text-content">
-                                                <h4>Cras commodo odio ut</h4>
-                                                <h5>Category</h5>
-                                                <span>16 July 2018</span>
-                                                <p>Nam vel egestas nisi. Nullam lobortis magna at enim venenatis luctus. Nam
-                                                    finibus, mauris eu dictum iaculis, dolor tortor cursus quam, in volutpat
-                                                    augue lectus sed magna. Integer mollis lorem quis ipsum maximus
-                                                    finibus.</p>
-                                                <div class="accent-button button">
-                                                    <a href="#contact">Continue Reading</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
+                            <div class="card mb-3">
+                                <img src="https://www.123effizientdabei.de/wp-content/uploads/Wiki.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
+                                        This content is a little bit longer.
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                    </p>
+                                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                                </div>
                             </div>
+
                         </section>
                     </div>
                 </div>

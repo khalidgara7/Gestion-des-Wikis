@@ -20,37 +20,65 @@ class AuthenticationController
     }
     // function login for save data
 
-    public function Login()
+    public function login()
     {
         $savelogin = new UserModel();
         $email = $_POST['email'];
         $password = $_POST['password'];
         $userByEmail = $savelogin->findUserByEmail($email);
 
-        if(password_verify($password, $userByEmail['MotDePasse']))
+        if(password_verify($password, $userByEmail['password']))
         {
-            session_start();
-            $_SESSION['UserID'] = $userByEmail['UserID'];
-            $_SESSION['Role'] = $userByEmail['Role'];
-            $_SESSION['name'] = $userByEmail['NomUtilisateur'];
-            $_SESSION['email'] = $userByEmail['Email'];
-            if($userByEmail['Role'] == "admin"){
-                require __DIR__."/../../View/dashboard.php";
-            }elseif ($userByEmail['Role'] == "author"){
-                require __DIR__."/../../View/Wikis.php";
+            $_SESSION['id'] = $userByEmail['id'];
+            $_SESSION['name'] = $userByEmail['full_Name'];
+            $_SESSION['email'] = $userByEmail['email'];
+            $_SESSION['role'] = $userByEmail['role'];
+            if($userByEmail['role'] == "admin"){
+                header('location: /dashboard');
+            }elseif ($userByEmail['role'] == "author"){
+                header('location: /wikis');
             }else{
                 echo " doesn't find u";
             }
         }else
         {
-            require __DIR__."/../../View/Home.php";
+            header('location: /home');
         }
+    }
+
+    public static function registerview()
+    {
+        require __DIR__."/../../View/Register.php";
     }
 
     public static function register()
     {
-        require __DIR__."/../../View/Register.php";
+        isset($_POST['submit']);
+        extract($_POST);
+        if ($c_password == $password)
+        {
+
+            $check_mail = new UserModel();
+            $userByEmail = $check_mail->findUserByEmail($email);
+            if ($userByEmail == 0)
+            {
+                $insert = new UserModel();
+                $insert->signup($full_name, $birthday, $email, $password);
+                header('location: /loginview');
+
+            }
+            else
+            {
+                header('location: /register');
+            }
+        }else
+        {
+            header('location: /register');
+        }
+
     }
+
+
 
 
 }

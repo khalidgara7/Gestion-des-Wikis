@@ -43,16 +43,16 @@ include '../View/includes/sidebar.php';
 </nav>
 <div class="form-wrapper">
     <h2>Sign In</h2>
-    <form action="/new-page" method="post">
+    <form action="/login" method="post">
         <div class="form-control">
-            <input type="text" required>
+            <input type="text" name="email" required>
             <label>Email or phone number</label>
         </div>
         <div class="form-control">
-            <input type="password" required>
+            <input type="password" name="password" required>
             <label>Password</label>
         </div>
-        <button type="submit">Sign In</button>
+        <button type="submit" name="savelogin">Sign In</button>
         <div class="form-help">
             <div class="remember-me">
                 <input type="checkbox" id="remember-me">
