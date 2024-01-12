@@ -36,7 +36,7 @@ class AuthenticationController
             if($userByEmail['role'] == "admin"){
                 header('location: /dashboard');
             }elseif ($userByEmail['role'] == "author"){
-                header('location: /wikis');
+                header('location: /home');
             }else{
                 echo " doesn't find u";
             }
@@ -53,11 +53,9 @@ class AuthenticationController
 
     public static function register()
     {
-        isset($_POST['submit']);
         extract($_POST);
         if ($c_password == $password)
         {
-
             $check_mail = new UserModel();
             $userByEmail = $check_mail->findUserByEmail($email);
             if ($userByEmail == 0)
@@ -65,20 +63,19 @@ class AuthenticationController
                 $insert = new UserModel();
                 $insert->signup($full_name, $birthday, $email, $password);
                 header('location: /loginview');
-
             }
             else
             {
+
                 header('location: /register');
             }
         }else
         {
+
             header('location: /register');
         }
 
     }
-
-
 
 
 }

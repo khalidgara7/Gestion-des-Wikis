@@ -38,9 +38,6 @@
 include '../View/includes/sidebar.php';
 
 ?>
-<nav>
-    <a href="#"><img src="images/logo.svg" alt="logo"></a>
-</nav>
 <div class="form-wrapper">
     <h2>Sign In</h2>
     <form action="/login" method="post">

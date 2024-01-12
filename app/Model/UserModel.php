@@ -2,8 +2,7 @@
 
 namespace App\Model;
 use PDO;
-class UserModel
-{
+class UserModel extends Model {
     public $data;
     public function __construct()
     {
@@ -11,7 +10,7 @@ class UserModel
     }
     public function findUserByEmail($email)
     {
-        $query = "select * from user where '$email' = ?";
+        $query = "select * from user where email = ?";
         $executquery = $this->data->prepare($query);
         $executquery->bindParam(1,$email);
         $executquery->execute();
@@ -23,7 +22,7 @@ class UserModel
         $query = "INSERT INTO user (full_Name, password, email, birthday, role) 
           VALUES (:full_name, :password, :email, :birthday, :role)";
         $hachpassword = password_hash($password, PASSWORD_DEFAULT);
-        $role ="admin";
+        $role ="author";
         $excutequery = $this->data->prepare($query);
         $excutequery->bindParam(':full_name', $full_name, PDO::PARAM_STR);
         $excutequery->bindParam(':password', $hachpassword, PDO::PARAM_STR);
@@ -32,4 +31,13 @@ class UserModel
         $excutequery->bindParam(':role', $role, PDO::PARAM_STR);
         $excutequery->execute();
     }
+
+    ///////////////////////////////////////////////////
+
+    public function fetchAllAuthor(){
+        return  $this->read("user");
+    }
+
+
+
 }

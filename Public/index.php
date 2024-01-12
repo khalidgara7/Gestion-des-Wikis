@@ -3,7 +3,11 @@
 require '../vendor/autoload.php';
 
 use App\Controllers\AuthenticationController;
+use App\Controllers\CategoriesController;
+use App\Controllers\DashboardController;
 use App\Controllers\HomeController;
+use App\Controllers\TagsController;
+use App\Controllers\WikisController;
 use App\Core\Router;
 
 session_start();
@@ -18,7 +22,7 @@ $route = new Router();
 // display pages
 $route->get('/home', function () { HomeController::index(); });
 
-$route->get('/wikis', function (){HomeController::wikis(); });
+$route->get('/wikis', function (){WikisController::wikis(); });
 
 // Display Authentication pages.
 
@@ -48,7 +52,16 @@ $route->get('/register', function (){AuthenticationController::registerview(); }
 $route->post('/signup', function (){AuthenticationController::register(); });
 
 
-// using post
+// partier admin
+
+$route->get('/dashboard', function (){DashboardController::dashboard(); });
+$route->get('/formwiki', function (){DashboardController::formAddwiki(); });
+$route->post('/addwiki', function (){WikisController::Addwiki(); });
+$route->get('/deleteWiki', function (){WikisController::deletewiki(); });
+
+$route->get('/categories', function (){CategoriesController::categories(); });
+
+$route->get('/tags', function (){TagsController::tags(); });
 
 
 
