@@ -14,7 +14,7 @@
                 <a href="/categories" class="sidebar_link"> <img src="/img/icons/agents.svg" alt="icon">Categories</a>
             </li>
             <li class="sidebar_item">
-                <a href="tags" class="sidebar_link"> <img src="/img/icons/task.svg" alt="icon">Tags</a>
+                <a href="/tags" class="sidebar_link"> <img src="/img/icons/task.svg" alt="icon">Tags</a>
             </li>
 
         </ul>

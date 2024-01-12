@@ -156,9 +156,9 @@
                 <div class="row g-0 px-2">
                     <div class="col-xl-8 col-md-12 col-sm-12 col-12 p-4  ">
                         <div class="text-start"  id="chart">
-                            <button type="button" class="btn btn-primary position-relative">
-                                ADD WIKIS
-                            </button>
+                            <a href="/Addtags" class="btn btn-primary position-relative">
+                                ADD Tags
+                            </a>
                         </div>
                     </div>
 
@@ -172,18 +172,19 @@
                         <thead>
                         <tr class="table table-dark">
                             <th>Name</th>
-                            <th>category</th>
                             <th>Action</th>
                         </tr>
                         </thead>
 
                         <tbody>
+                        <?php
+                            foreach ($tags as $tag)
+                        ?>
                         <tr>
-                            <td>sdkhfgsdjk</td>
-                            <td>l;kn;dflkz</td>
+                            <td><?=$tag['NAME'] ?></td>
                             <td>
                                 <a href="Team/edit/" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="Team/delete/" class="delete" title="Delete" data-toggle="tooltip" onclick="return confirm('Do you really want to Delete ?');"><i class="material-icons">&#xE872;</i></a>
+                                <a href="/deleteTag?id=<?= $tag['id'] ?>" class="delete" title="Delete" data-toggle="tooltip" onclick="return confirm('Do you really want to Delete ?');"><i class="material-icons">&#xE872;</i></a>
                             </td>
                         </tr>
                         </tbody>

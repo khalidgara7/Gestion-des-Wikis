@@ -49,11 +49,16 @@ class WikisModel
     public function addWiki($data)
     {
         extract($data);
-        $query = "insert into wiki (user_id, categorie_id, title, description, content) 
+        try {
+            $query = "insert into wiki (user_id, categorie_id, title, description, content) 
                     values (:user_id, :categorie, :title, :description, :content) ";
-        $excutequery = $this->data->prepare($query);
-        $excutequery->execute($data);
+            $excutequery = $this->data->prepare($query);
+            $excutequery->execute($data);
+        }catch (PDOException  $e){
+            echo "error insert wikis " . $e->getMessage();
+        }
     }
+
     public function deletewiki($id)
     {
 

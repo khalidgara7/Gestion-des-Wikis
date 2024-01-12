@@ -18,6 +18,9 @@
 <body>
 <div class="wrapper">
     <?php
+
+    use App\Model\CategorieModel;
+
     include '../View/includes/Dashboard_sidebar.php';
     ?>
     <div class="main">
@@ -156,9 +159,9 @@
                 <div class="row g-0 px-2">
                     <div class="col-xl-8 col-md-12 col-sm-12 col-12 p-4  ">
                         <div class="text-start"  id="chart">
-                            <button type="button" class="btn btn-primary position-relative">
-                                ADD WIKIS
-                            </button>
+                            <a href="/Addcategories" class="btn btn-primary position-relative">
+                                ADD Categories
+                            </a>
                         </div>
                     </div>
 
@@ -172,20 +175,31 @@
                         <thead>
                         <tr class="table table-dark">
                             <th>Name</th>
-                            <th>category</th>
                             <th>Action</th>
                         </tr>
                         </thead>
 
                         <tbody>
+                        <?php
+
+                        foreach ($categories as $categorie):
+
+                        ?>
                         <tr>
-                            <th>sdkhfgsdjk</th>
-                            <td>l;kn;dflkz</td>
+                            <th><?=$categorie['NAME'] ?></th>
                             <td>
-                                <a href="Team/edit/" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a href="Team/delete/" class="delete" title="Delete" data-toggle="tooltip" onclick="return confirm('Do you really want to Delete ?');"><i class="material-icons">&#xE872;</i></a>
+                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a href="/deleteCategorie?id=<?= $categorie['id'] ?>" class="delete" title="Delete" data-toggle="tooltip"
+                                   onclick="return confirm('Do you really want to Delete ?');">
+                                    <i
+                                            class="material-icons">&#xE872;
+                                    </i>
+                                </a>
                             </td>
                         </tr>
+                        <?php
+                        endforeach;
+                        ?>
                         </tbody>
                     </table>
                 </div>
@@ -197,11 +211,11 @@
 <!-- edit modal -->
 <div class="modal">
     <div class="modal-content" >
-        <form  method="" action="" enctype="multipart/form-data">
+        <form  method="post" action="/addcategorie" enctype="multipart/form-data">
             <!-- 2 column grid layout with text inputs for the first and last names -->
             <div class="mb-4">
                 <label class="form-label"  >Title</label>
-                <input type="text" name="title" class="form-control task-desc" >
+                <input type="text" name="name" class="form-control task-desc" >
 
             </div>
             <div class="mb-4">
@@ -209,31 +223,10 @@
                 <input type="text" name="description" class="form-control task-desc" >
 
             </div>
-            <div class="mb-4">
-                <label class="form-label" >Content</label>
-                <input type="text" name="enterprise" class="form-control task-desc" >
 
-            </div>
-            <div class="mb-4">
-                <label class="form-label" >Create At</label>
-                <input type="text" name="local" class="form-control task-desc" >
 
-            </div>
-            <!-- select input -->
-            <div class="mb-4">
-                <label class="form-label">Status</label>
-                <select class="form-control" name="taskstatus" id="status">
-                    <option value="">Pending</option>
-                    <option value="">Draft</option>
-                    <option value="">Published</option>
-                    <option value="">archived</option>
-                </select>
-            </div>
-            <div class="mb-4">
-                <label class="form-label" >Image</label>
-                <input type="file"= "form-control task-desc" name="my_image" >
 
-            </div>
+
 
             <div class="d-flex w-100 justify-content-center">
                 <button type="submit" name="Addoffer" class="btn btn-success btn-block mb-4 me-4 save">Save Edit</button>

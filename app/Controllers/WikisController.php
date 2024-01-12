@@ -32,8 +32,8 @@ class WikisController
             $deletewiki->deletewiki($id);
         header("location: /../../dashboard");
 
-
-
     }
+
+
 
 }

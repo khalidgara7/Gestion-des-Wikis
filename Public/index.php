@@ -53,15 +53,25 @@ $route->post('/signup', function (){AuthenticationController::register(); });
 
 
 // partier admin
-
 $route->get('/dashboard', function (){DashboardController::dashboard(); });
+
+// wikis
 $route->get('/formwiki', function (){DashboardController::formAddwiki(); });
 $route->post('/addwiki', function (){WikisController::Addwiki(); });
-$route->get('/deleteWiki', function (){WikisController::deletewiki(); });
+$route->post('/deleteWiki', function (){WikisController::deletewiki(); });
 
+// categories
 $route->get('/categories', function (){CategoriesController::categories(); });
+$route->get('/Addcategories', function (){CategoriesController::Addcategories(); });
+$route->post('/formcategorie', function (){CategoriesController::saveCategorie(); });
+$route->get('/deleteCategorie', function (){CategoriesController::deleteCategorie(); });
 
+
+// tags
 $route->get('/tags', function (){TagsController::tags(); });
+$route->get('/Addtags', function (){TagsController::addTag(); });
+$route->post('/formtag', function (){TagsController::saveTags(); });
+$route->get('/deleteTag?id', function (){TagsController::deletetag(); });
 
 
 
