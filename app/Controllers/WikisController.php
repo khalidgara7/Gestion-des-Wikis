@@ -49,7 +49,7 @@ class WikisController
 
     }
 
-    public static function updatexiki()
+    public static function updateWiki()
     {
 
             $updatewiki = new WikisModel();
@@ -58,6 +58,31 @@ class WikisController
 
 
 
+    }
+
+    public static function updatStatusPublished()
+    {
+        $id = $_GET['id'];
+        $status = new WikisModel();
+        $status->updateStatusPublished($id);
+        header("location: /../../dashboard");
+    }
+
+    public static function updatStatusDraft()
+    {
+        $id = $_GET['id'];
+        $statusdarft = new WikisModel();
+        $statusdarft->updateStatusDraft($id);
+        header("location: /../../dashboard");
+
+    }
+
+    public static function updatStatusArchived()
+    {
+        $id = $_GET['id'];
+        $statusarchived = new WikisModel();
+        $statusarchived->updateStatusArechived($id);
+        header("location: /../../dashboard");
     }
 
 }

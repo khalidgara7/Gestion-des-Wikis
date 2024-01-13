@@ -24,7 +24,6 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
-
     <script src="Styles/Js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 
@@ -52,56 +51,27 @@ include '../View/includes/sidebar.php';
                     <section id="first-tab-group" class="tabgroup">
                         <div id="tab1">
                             <ul>
-                                <li>
-                                    <div class="item">
-                                        <img src="img/blog_1.jpg" alt="">
-                                        <div class="text-content">
-                                            <h4>Integer ultrices augue</h4>
-                                            <h5>Category</h5>
-                                            <span>25 July 2018</span>
-                                            <p>Nam vel egestas nisi. Nullam lobortis magna at enim venenatis luctus. Nam
-                                                finibus, mauris eu dictum iaculis, dolor tortor cursus quam, in volutpat
-                                                augue lectus sed magna. Integer mollis lorem quis ipsum maximus
-                                                finibus.</p>
+                                <?php
+                                foreach ($wikis as $wiki):
+                                    ?>
+                                    <li>
+                                        <div class="item">
+                                            <img src="img/blog_1.jpg" alt="">
+                                            <div class="text-content">
+                                                <h4><?= $wiki['title'] ?></h4>
+                                                <h5><?= $wiki['NAME'] ?></h5>
+                                                <span><?= $wiki['created_at'] ?></span>
+                                                <p><?= $wiki['description'] ?></p>
 
-                                            <div class="accent-button button">
-                                                <a href="#contact">Continue Reading</a>
+                                                <div class="accent-button button">
+                                                    <a href="/singlwiki?id=<?= $wiki['id'] ?>">Continue Reading</a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="item">
-                                        <img src="img/blog_2.jpg" alt="">
-                                        <div class="text-content">
-                                            <h4>Cras commodo odio ut</h4>
-                                            <h5>Category</h5>
-                                            <span>16 July 2018</span>
-                                            <p>Nam vel egestas nisi. Nullam lobortis magna at enim venenatis luctus. Nam
-                                                finibus, mauris eu dictum iaculis, dolor tortor cursus quam, in volutpat
-                                                augue lectus sed magna. Integer mollis lorem quis ipsum maximus
-                                                finibus.</p>
-                                            <div class="accent-button button">
-                                                <a href="#contact">Continue Reading</a>
-                                            </div>
-                                        </div>
-                                        <?php
-                                        if(isset($_SESSION['id']) && $_SESSION['role']=='author'):
-                                            ?>
-                                            <div class="col-sm-12 p-4">
-                                                <button type="submit" class="btn btn-block btn-primary">Create Wikis</button>
-                                            </div>
-                                        <?php endif;?>
-                                        <?php
-                                        if(!isset($_SESSION['id'])):
-                                        ?>
-                                            <div class="col-sm-12 p-4 ">
-                                                <a href="/loginview"  class="btn btn-block btn-primary">Start creating your first  Wiki</a>
-                                            </div>
-                                        <?php endif;?>
-
-                                    </div>
-                                </li>
+                                    </li>
+                                <?php
+                                endforeach;
+                                ?>
                             </ul>
                         </div>
                     </section>

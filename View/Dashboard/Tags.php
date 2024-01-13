@@ -171,7 +171,8 @@
                     <table id="example" class="table table-striped" style="width:100%">
                         <thead>
                         <tr class="table table-dark">
-                            <th>Name</th>
+                            <th>id Tags</th>
+                            <th>Name Tags</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -181,9 +182,10 @@
                             foreach ($tags as $tag):
                         ?>
                         <tr>
+                            <td><?=$tag['id'] ?></td>
                             <td><?=$tag['NAME'] ?></td>
                             <td>
-                                <a href="Team/edit/" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a href="Updatetagsform?id=<?= $tag['id'] ?>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                                 <a href="/deleteTag?id=<?= $tag['id'] ?>" class="delete" title="Delete" data-toggle="tooltip" onclick="return confirm('Do you really want to Delete ?');"><i class="material-icons">&#xE872;</i></a>
                             </td>
                         </tr>

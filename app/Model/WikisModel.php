@@ -1,5 +1,6 @@
 <?php
 namespace App\Model;
+use mysql_xdevapi\Exception;
 use PDO;
 use PDOException;
 
@@ -19,6 +20,25 @@ class WikisModel
             INNER JOIN categorie c 
             ON w.categorie_id=c.id 
             where status ='published' ";
+            $executquery = $this->data->prepare($query);
+
+            $executquery->execute();
+            return $executquery->fetchAll(PDO::FETCH_ASSOC);
+        }catch (PDOException  $e){
+            echo "error fetching data" . $e->getMessage();
+        }
+
+    }
+    public function fetchRecentWikis()
+    {
+        try{ $query = "SELECT w.*,u.full_Name,c.NAME FROM wiki w
+            INNER JOIN user u
+            ON w.user_id=u.id
+            INNER JOIN categorie c 
+            ON w.categorie_id=c.id 
+            where status ='published' 
+            order by created_at
+            LIMIT 5";
             $executquery = $this->data->prepare($query);
 
             $executquery->execute();
@@ -82,7 +102,7 @@ class WikisModel
     public function wikiupdate($data)
     {
         extract($data);
-        $query = "update wiki set categorie_id=:categorie_id,title=:title,description=:description,content=:content
+        $query = "update wiki set categorie_id = :categorie_id, title = :title, description = :description, content = :content
         where id=:id";
         $stmt = $this->data->prepare($query);
         $stmt->bindParam(":categorie_id",$categorie,PDO::PARAM_INT);
@@ -91,6 +111,63 @@ class WikisModel
         $stmt->bindParam(":content",$content,PDO::PARAM_STR);
         $stmt->bindParam(":id",$id,PDO::PARAM_INT );
         $stmt->execute();
+    }
+
+    public function updateStatusPublished($data)
+    {
+        try {
+            $query = "update wiki set status = 'published'
+        where id = :id";
+            $stmt = $this->data->prepare($query);
+            $stmt->bindParam(":id", $data, PDO::PARAM_INT);
+            $stmt->execute();
+        }catch (PDOException $e){
+            echo "Failed !";
+        }
+    }
+
+    public function updateStatusDraft($data)
+    {
+        try {
+            $query = "update wiki set status = 'draft'
+                where id = :id";
+            $stmt = $this->data->prepare($query);
+            $stmt->bindParam(":id", $data, PDO::PARAM_INT);
+            $stmt->execute();
+        }catch (PDOException $e){
+            echo " Failed ! ";
+        }
+    }
+
+    public function updateStatusArechived($data)
+    {
+        try {
+            $query = "update wiki set status = 'archived'
+                        where id = :id";
+            $stmt = $this->data->prepare($query);
+            $stmt->bindParam(":id", $data, PDO::PARAM_INT);
+            $stmt->execute();
+        }catch (PDOException $e){
+            echo " Failed ! ";
+        }
+    }
+
+    public function fetchWiki($id)
+    {
+        try{ $query = "SELECT w.*,u.full_Name,c.NAME FROM wiki w
+            INNER JOIN user u
+            ON w.user_id=u.id
+            INNER JOIN categorie c 
+            ON w.categorie_id=c.id 
+            where status ='published' 
+            and w.id = $id";
+            $executquery = $this->data->prepare($query);
+
+            $executquery->execute();
+            return $executquery->fetch(PDO::FETCH_ASSOC);
+        }catch (PDOException  $e){
+            echo "error fetching data" . $e->getMessage();
+        }
     }
 
 }

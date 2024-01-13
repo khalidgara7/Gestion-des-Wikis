@@ -173,7 +173,8 @@
                     <table id="example" class="table table-striped" style="width:100%">
                         <thead>
                         <tr class="table table-dark">
-                            <th>Name</th>
+                            <th>id Categories</th>
+                            <th>Name Categories</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -185,9 +186,10 @@
 
                         ?>
                         <tr>
+                            <th><?=$categorie['id'] ?></th>
                             <th><?=$categorie['NAME'] ?></th>
                             <td>
-                                <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                                <a href="/updatecategoriesForm?id=<?= $categorie['id'] ?>" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                                 <a href="/deleteCategorie?id=<?= $categorie['id'] ?>" class="delete" title="Delete" data-toggle="tooltip"
                                    onclick="return confirm('Do you really want to Delete ?');">
                                     <i

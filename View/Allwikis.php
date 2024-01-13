@@ -24,7 +24,6 @@
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
-
     <script src="Styles/Js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 
@@ -39,30 +38,23 @@ include '../View/includes/sidebar.php';
 
 <!-- page content -->
 <div class="page-content">
-    <section id="blog" class="content-section">
-        <section class="search-sec p-5 ">
-            <div class="container ">
-                <form action="#" method="post" novalidate="novalidate">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="row d-flex justify-content-end align-items-center">
-                                <div class="col-lg-3 col-md-3 col-sm-12 p-0">
-                                    <input type="text" class="form-control search-slt" placeholder="Enter Pickup City">
-                                </div>
-                                <div class="col-lg-1 col-md-1 col-sm-12 p-0">
-                                    <button type="button" class="btn btn-primary wrn-btn">Search</button>
-                                </div>
+    <section id="blog" class="content-section ">
+            <form action="#" method="post" novalidate="novalidate">
+                <div class="row ">
+                    <div class="col-lg-12 ">
+                        <div class="row d-flex justify-content-end align-items-center " style="margin: 2rem;">
+                            <div class="col-lg-3 col-md-3 col-sm-12 p-0">
+                                <input type="text" class="form-control search-slt" placeholder="Enter Pickup City">
+                            </div>
+                            <div class="col-lg-1 col-md-1 col-sm-12 p-0">
+                                <button type="button" class="btn btn-primary wrn-btn">Search</button>
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
-        </section>
-        <div class="section-heading">
-            <h1>View all<br><em>ARTICLES</em></h1>
-            <p>Wikis is hosted by the Wikimedia Foundation,
-                <br>organization that also hosts a range of other projects.</p>
-        </div>
+                </div>
+            </form>
+
+
         <div class="section-content">
             <div class="tabs-content">
                 <div class="wrapper">
@@ -71,25 +63,25 @@ include '../View/includes/sidebar.php';
                             <ul>
                                 <?php
                                 foreach ($wikis as $wiki):
-                                ?>
-                                <li>
-                                    <div class="item">
-                                        <img src="img/blog_1.jpg" alt="">
-                                        <div class="text-content">
-                                            <h4><?= $wiki['title'] ?></h4>
-                                            <h5>Category</h5>
-                                            <span><?= $wiki['created_at'] ?></span>
-                                            <p><?= $wiki['description'] ?>
-                                                <br>
-                                                <?= $wiki['content'] ?>
-                                            </p>
+                                    ?>
+                                    <li>
+                                        <div class="item">
+                                            <img src="img/blog_1.jpg" alt="">
+                                            <div class="text-content">
+                                                <h4><?= $wiki['title'] ?></h4>
+                                                <h5>Category</h5>
+                                                <span><?= $wiki['created_at'] ?></span>
+                                                <p><?= $wiki['description'] ?>
+                                                    <br>
+                                                    <?= $wiki['content'] ?>
+                                                </p>
 
-                                            <div class="accent-button button">
-                                                <a href="#contact">Continue Reading</a>
+                                                <div class="accent-button button">
+                                                    <a href="/singlwiki">Continue Reading</a>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
                                 <?php
                                 endforeach;
                                 ?>

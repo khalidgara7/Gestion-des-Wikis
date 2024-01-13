@@ -40,4 +40,24 @@ class CategoriesController
         header("location: /../../categories");
     }
 
+
+    public static function formUpdateCategorie()
+    {
+        $id = $_GET['id'];
+        $categorieObj = new CategorieModel();
+        $categorie = $categorieObj->getCatgorie($id);
+        require __DIR__ . "/../../View/Dashboard/updateCategories.php";
+
+    }
+
+    public static function submitupdateCategorie()
+    {
+        $objCatgorie = new CategorieModel();
+        $objCatgorie->submitUpdateCatgorie($_POST);
+        header("location: /../../categories");
+
+    }
+
+
+
 }

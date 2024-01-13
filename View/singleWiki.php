@@ -45,28 +45,37 @@ include '../View/includes/sidebar.php';
         <div id="main-content" class="blog-page">
             <div class="container">
                 <div class="row clearfix">
-                    <div class="col-lg-12 col-md-12 left-box">
-                        <div class="card single_post">
-                            <div class="body">
-                                <div class="img-post">
-                                    <img src="https://www.123effizientdabei.de/wp-content/uploads/Wiki.jpg" alt="First slide">
-                                </div>
-                                <h3><a href="#wikis">All Wikis are accurate</a></h3>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            </div>
-                        </div>
-
+                    <div class="col-lg-11 col-md-11 left-box">
+                            <!--array(10) { ["id"]=> int(5) ["user_id"]=> int(6)
+                             ["categorie_id"]=> int(1) ["title"]=> string(18)
+                              "haahahahahahhahahh" ["description"]=> string(14)
+                               "hahahahahahaha" ["content"]=> string(30)
+                                "haahahahahahahzzzzzzzzzzzzzzzz"
+                                 ["created_at"]=> string(19)
+                                 "2024-01-12 02:54:00"
+                                 ["status"]=> string(9) "published" ["full_Name"]=>
+                                 string(6) "khalid" ["NAME"]=> string(7) "gamesss" }-->
                         <section id="first-tab-group" class="tabgroup">
+                            <div>
+                                <h1><?= $wiki['title']?></h1>
+                                <p class="lead"> by <a href=""><?= $wiki['full_Name']?></a>
+                                </p>
+                                <hr>
+                                <p><i class="fa fa-calendar"></i> <?= $wiki['created_at']?> </p>
 
+                            </div>
                             <div class="card mb-3">
                                 <img src="https://www.123effizientdabei.de/wp-content/uploads/Wiki.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
-                                        This content is a little bit longer.
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                    <p class="card-text"><?= $wiki['description']?></p>
+                                    <p class="card-text"><?= $wiki['content']?></p>
+                                    <p>
+                                        <span class="badge badge-info">Bootstrap</span>
+                                        <span class="badge badge-info">Web</span>
+                                        <span class="badge badge-info">CSS</span>
+                                        <span class="badge badge-info">HTML</span>
                                     </p>
-                                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+
                                 </div>
                             </div>
 

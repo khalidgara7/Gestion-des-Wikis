@@ -38,4 +38,19 @@ class TagsController
         }
     }
 
+    public static function formUpdateTags()
+    {
+        $id = $_GET['id'];
+        $tagObj = new TagsModel();
+        $tag = $tagObj->getTag($id);
+        require __DIR__ . "/../../View/Dashboard/updateTags.php";
+    }
+
+    public static function submitUpdateTags()
+    {
+        $objTags = new TagsModel();
+        $objTags->submitTags($_POST);
+        header("location: /../../tags");
+    }
+
 }

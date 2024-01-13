@@ -64,7 +64,7 @@
                             <img src="/img/icons/photo_admin.svg" alt="icon">
                         </a>
                         <div class="dropdown-menu dropdown-menu-end position-absolute">
-                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="/home">Home</a>
                             <a class="dropdown-item" href="#">Account Setting</a>
                             <a class="dropdown-item" href="/logout">Log out</a>
                         </div>
@@ -179,6 +179,7 @@
                             <th >create At</th>
                             <th >Status</th>
                             <th >Action</th>
+                            <th >status action</th>
 
                         </tr>
                         </thead>
@@ -189,7 +190,15 @@
                             ?>
                             <tr class="fs-6 fw-lighter">
 
-                                <td><?= $wiki['title'] ?></td>
+                                <td>
+                                    <?php
+                                    $title = $wiki['title'];
+                                    if (strlen($title) > 20) {
+                                        $title = substr($title, 0, 30) . '...';
+                                    }
+                                    echo $title;
+                                    ?>
+                                </td>
 
                                 <td>
                                     <?php
@@ -208,12 +217,24 @@
                                 </td>
 
                                 <td>
-                                    <a href="/updatewiki?id=<?= $wiki['id'] ?>" class="edit" title="Edit" data-toggle="tooltip">
+
+                                    <a  href="/updatewiki?id=<?= $wiki['id'] ?>" class="edit" title="Edit" data-toggle="tooltip">
                                         <i class="material-icons">&#xE254;</i>
                                     </a>
                                     <a href="/deleteWiki?id=<?= $wiki['id'] ?>" class="delete" title="Delete" data-toggle="tooltip"
                                        onclick="return confirm('Do you really want to Delete ?');"><i
-                                                class="material-icons">&#xE872;</i></a>
+                                                class="material-icons">&#xE872;</i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a  href="/updateStatus?id=<?= $wiki['id'] ?>" class="edit" title="Edit" data-toggle="tooltip">
+                                        <svg class="mb-2 mx-2" xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#63E6BE" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
+                                    </a>
+                                    <a  href="/updateStatusdarft?id=<?= $wiki['id'] ?>" class="edit" title="Edit" data-toggle="tooltip">
+                                        <svg class="mb-2 mx-2" xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#d80e0e" d="M367.2 412.5L99.5 144.8C77.1 176.1 64 214.5 64 256c0 106 86 192 192 192c41.5 0 79.9-13.1 111.2-35.5zm45.3-45.3C434.9 335.9 448 297.5 448 256c0-106-86-192-192-192c-41.5 0-79.9 13.1-111.2 35.5L412.5 367.2zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg>
+                                    </a>
+                                    <a  href="/updateStatusArchived?id=<?= $wiki['id'] ?>" class="edit" title="Edit" data-toggle="tooltip">
+                                        <svg class="mb-2 mx-2" xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#4d4f51" d="M121 32C91.6 32 66 52 58.9 80.5L1.9 308.4C.6 313.5 0 318.7 0 323.9V416c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V323.9c0-5.2-.6-10.4-1.9-15.5l-57-227.9C446 52 420.4 32 391 32H121zm0 64H391l48 192H387.8c-12.1 0-23.2 6.8-28.6 17.7l-14.3 28.6c-5.4 10.8-16.5 17.7-28.6 17.7H195.8c-12.1 0-23.2-6.8-28.6-17.7l-14.3-28.6c-5.4-10.8-16.5-17.7-28.6-17.7H73L121 96z"/></svg>                                    </a>
                                 </td>
                             </tr>
                             <?php
