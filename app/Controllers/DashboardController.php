@@ -11,8 +11,14 @@ class DashboardController
 
     public static function dashboard()
     {
-        $obj = new WikisModel();
-        $wikis = $obj->getAllWikis();
+        $objwiki = new WikisModel();
+        $wikis = $objwiki->getAllWikis();
+
+        $author = new UserModel();
+        $nbrauthors = $author->countAuthors();
+
+        $nbrwikis = $objwiki->countWikis();
+        $nbrPublishedWikis = $objwiki->countPublishedWikis();
         require __DIR__ . "/../../View/Dashboard/dashboard.php";
     }
     public static function formAddwiki()
@@ -24,6 +30,8 @@ class DashboardController
         $Authors = $obj->fetchAllAuthor();
         require __DIR__ . "/../../View/Dashboard/addwiki.php";
     }
+
+
 
 
 

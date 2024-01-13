@@ -64,6 +64,11 @@ class CategorieModel extends Model
 
 
     }
+    public function countCategories(){
+        $obj = new Model();
+        $nbrcategorie = $obj->count("categorie");
+        return $nbrcategorie;
+    }
 
 
 }

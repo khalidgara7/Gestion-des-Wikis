@@ -170,4 +170,28 @@ class WikisModel
         }
     }
 
+
+    //statistic for wikis
+    public function countWikis(){
+        $obj = new Model();
+        $nbrwikis = $obj->count("wiki");
+        return $nbrwikis;
+    }
+
+    public function countPublishedWikis()
+    {
+        try {
+            $query="select count(id) as nbr from `wiki` where status = 'published'";
+            $stmt = $this->data->prepare($query);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }catch (PDOException $e){
+            echo "error fetching users" . $e->getMessage();
+            return $result=0;
+        }
+    }
+
+
+
 }

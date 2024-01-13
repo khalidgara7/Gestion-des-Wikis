@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Model;
+use http\QueryString;
 use PDO;
+use PDOException;
 class UserModel extends Model {
     public $data;
     public function __construct()
@@ -38,6 +40,19 @@ class UserModel extends Model {
         return  $this->read("user");
     }
 
+    public function countAuthors()
+    {
+        try {
+            $query="select count(id) as nbr from `user` where role = 'author'";
+            $stmt = $this->data->prepare($query);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }catch (PDOException $e){
+            echo "error fetching users" . $e->getMessage();
+            return $result=0;
+        }
+    }
 
 
 }

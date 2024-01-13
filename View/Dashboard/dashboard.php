@@ -79,9 +79,9 @@
                         <div class="card-body  p-4">
                             <div class="d-flex justify-content-between px-md-1">
                                 <div>
-                                    <p class="mb-0">Offers</p>
+                                    <p class="mb-0">Total Wikis</p>
                                     <div class="mt-4">
-                                        <h3><strong></strong></h3>
+                                        <h3><strong><?=$nbrwikis['nbr']?></strong></h3>
                                     </div>
                                 </div>
                                 <div class="cursor">
@@ -97,9 +97,10 @@
                         <div class="card-body p-4">
                             <div class="d-flex justify-content-between px-md-1">
                                 <div>
-                                    <p class="mb-0">Active Offers</p>
+                                    <p class="mb-0">Total authors</p>
+
                                     <div class="mt-4">
-                                        <h3><strong></strong></h3>
+                                        <h3><strong><?=$nbrauthors['nbr']?></strong></h3>
 
                                     </div>
                                 </div>
@@ -116,32 +117,14 @@
                         <div class="card-body p-4">
                             <div class="d-flex justify-content-between px-md-1">
                                 <div>
-                                    <p class="mb-0">Inactive Offers</p>
+                                    <p class="mb-0">Published Wikis</p>
                                     <div class="mt-4">
-                                        <h3><strong></strong></h3>
+                                        <h3><strong><?=$nbrPublishedWikis['nbr']?></strong></h3>
                                         <!-- <p><strong></strong> Completed</p> -->
                                     </div>
                                 </div>
                                 <div class="">
                                     <img src="/img/icons/project-icon-3.svg" alt="icon">
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-12 mb-4">
-                    <div class="card">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between px-md-1">
-                                <div>
-                                    <p class="mb-0">Offers Approuver</p>
-                                    <div class="mt-4">
-                                        <h3><strong></h3>
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <img src="/img/icons/project-icon-4.svg" alt="icon">
                                 </div>
                             </div>
 
@@ -194,7 +177,7 @@
                                     <?php
                                     $title = $wiki['title'];
                                     if (strlen($title) > 20) {
-                                        $title = substr($title, 0, 30) . '...';
+                                        $title = substr($title, 0, 20) . '...';
                                     }
                                     echo $title;
                                     ?>

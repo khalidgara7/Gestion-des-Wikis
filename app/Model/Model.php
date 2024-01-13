@@ -25,4 +25,17 @@ class Model
 
     }
 
+
+    public  function count($tableName){
+        try {
+            $query="select count(id) as nbr from `$tableName`";
+        $stmt = $this->data->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+        }catch (PDOException $e){
+            echo "error fetching data" . $e->getMessage();
+            return $result=0;
+        }
+    }
 }

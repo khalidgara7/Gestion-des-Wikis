@@ -12,6 +12,8 @@ class TagsController
     {
         $tag = new TagsModel();
         $tags = $tag->fetchAllCategories();
+
+        $nbrtags = $tag->countTags();
         require __DIR__ . "/../../View/Dashboard/Tags.php";
     }
 

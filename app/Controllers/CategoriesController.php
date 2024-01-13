@@ -14,6 +14,8 @@ class CategoriesController
     {
         $categorie = new CategorieModel();
         $categories = $categorie->fetchAllCategories();
+
+        $nbrCategories = $categorie->countCategories();
         require __DIR__ . "/../../View/Dashboard/Categories.php";
     }
 

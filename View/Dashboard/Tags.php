@@ -76,72 +76,17 @@
             <div class="row p-4">
                 <div class="col-xl-3 col-sm-6 col-12 mb-4">
                     <div class="card">
-                        <div class="card-body  p-4">
-                            <div class="d-flex justify-content-between px-md-1">
-                                <div>
-                                    <p class="mb-0">Offers</p>
-                                    <div class="mt-4">
-                                        <h3><strong></strong></h3>
-                                    </div>
-                                </div>
-                                <div class="cursor">
-                                    <img src="/img/icons/project-icon-1.svg" alt="icon">
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-12 mb-4">
-                    <div class="card">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between px-md-1">
-                                <div>
-                                    <p class="mb-0">Active Offers</p>
-                                    <div class="mt-4">
-                                        <h3><strong></strong></h3>
-
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <img src="/img/icons/project-icon-2.svg" alt="icon">
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-12 mb-4">
-                    <div class="card">
                         <div class="card-body p-4">
                             <div class="d-flex justify-content-between px-md-1">
                                 <div>
                                     <p class="mb-0">Inactive Offers</p>
                                     <div class="mt-4">
-                                        <h3><strong></strong></h3>
+                                        <h3><strong><strong><?=$nbrtags['nbr']?></strong></h3>
                                         <!-- <p><strong></strong> Completed</p> -->
                                     </div>
                                 </div>
                                 <div class="">
                                     <img src="/img/icons/project-icon-3.svg" alt="icon">
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6 col-12 mb-4">
-                    <div class="card">
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between px-md-1">
-                                <div>
-                                    <p class="mb-0">Offers Approuver</p>
-                                    <div class="mt-4">
-                                        <h3><strong></h3>
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <img src="/img/icons/project-icon-4.svg" alt="icon">
                                 </div>
                             </div>
 

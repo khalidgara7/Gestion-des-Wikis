@@ -63,4 +63,11 @@ class TagsModel extends Model
         }
     }
 
+    public function countTags()
+    {
+        $obj = new Model();
+        $nbrtags = $obj->count("tag");
+        return $nbrtags;
+    }
+
 }
