@@ -76,8 +76,13 @@
         <section class="content-section">
             <div class="px-4 row d-flex justify-content-center">
                 <div class="col-xl-6 col-md-9 col-sm-9 col-9 fs-6 " style="width:100%">
-                    <form method="post" action="/addwiki" enctype="multipart/form-data">
+                    <form method="post" action="/submitupdatewiki" enctype="multipart/form-data">
                         <div class="mb-4">
+                            <div >
+                                <h2>UPDATE WIKIS</h2>
+                                <input type="hidden" name="id" value="<?=$wiki['id']?>" class="form-control task-desc">
+
+                            </div>
                             <label class="form-label">categorie</label>
                             <select class="form-control" name="categorie" id="status">
                                 <?php
@@ -91,31 +96,19 @@
                             </select>
                         </div>
                         <div class="mb-4">
-                            <label class="form-label">author</label>
-                            <select class="form-control" name="user_id" id="status">
-                                <?php
-                                    foreach ($Authors as $author):
-                                ?>
-                                <option value="<?=$author['id']?>"><?=$author['full_Name']?></option>
-
-                                <?php
-                                    endforeach;
-                                ?>
-                            </select>
-                        </div>
-                        <div class="mb-4">
                             <label class="form-label">Title</label>
-                            <input type="text" name="title" class="form-control task-desc">
+                            <input type="text" name="title" value="<?=$wiki['title']?>" class="form-control task-desc">
 
                         </div>
+
                         <div class="mb-4">
                             <label class="form-label">Description</label>
-                            <textarea class="form-control task-desc" name="description" rows="5" placeholder="Enter description..."></textarea>
+                            <textarea class="form-control task-desc"  name="description" rows="5" placeholder="Enter description..."><?=$wiki['description']?></textarea>
 
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Content</label>
-                            <textarea class="form-control task-desc" name="content" rows="15" placeholder="Enter description..."></textarea>
+                            <textarea class="form-control task-desc" name="content" rows="15" placeholder="Enter description..."><?=$wiki['content']?></textarea>
 
                         </div>
                         <!-- select input -->
@@ -128,7 +121,7 @@
 
                         <div class="d-flex w-100 justify-content-center">
                             <button type="submit" class="btn btn-success btn-block mb-4 me-4 save">
-                                Save Wikis
+                                update-Wikis
                             </button>
                             <a href="/dashboard" class="btn btn-danger btn-block mb-4" >Annuler</a>
                         </div>

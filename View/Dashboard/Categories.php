@@ -91,7 +91,6 @@
                                     <img src="/img/icons/project-icon-1.svg" alt="icon">
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>

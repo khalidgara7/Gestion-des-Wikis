@@ -42,7 +42,7 @@ class AuthenticationController
             }
         }else
         {
-            header('location: /home');
+            header('location: /login');
         }
     }
 
@@ -63,18 +63,14 @@ class AuthenticationController
                 $insert = new UserModel();
                 $insert->signup($full_name, $birthday, $email, $password);
                 header('location: /loginview');
-            }
-            else
+            } else
             {
-
                 header('location: /register');
             }
         }else
         {
-
             header('location: /register');
         }
-
     }
 
 

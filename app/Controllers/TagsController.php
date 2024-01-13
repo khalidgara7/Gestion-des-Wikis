@@ -25,16 +25,16 @@ class TagsController
         $id = $_GET['id'];
         $deletetag = new TagsModel();
         $deletetag->deleteTag($id);
-        header("location: /../../Addtags");
+        header("location: /../../tags");
     }
 
-    public function saveTags()
+    public static function  saveTags()
     {
         if(isset($_POST))
         {
             $addtags = new TagsModel();
             $addtags->addTags($_POST);
-            header('location: /../../AddTags');
+            header('location: /../../Addtags');
         }
     }
 

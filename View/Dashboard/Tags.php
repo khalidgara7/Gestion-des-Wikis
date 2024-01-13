@@ -178,7 +178,7 @@
 
                         <tbody>
                         <?php
-                            foreach ($tags as $tag)
+                            foreach ($tags as $tag):
                         ?>
                         <tr>
                             <td><?=$tag['NAME'] ?></td>
@@ -187,6 +187,9 @@
                                 <a href="/deleteTag?id=<?= $tag['id'] ?>" class="delete" title="Delete" data-toggle="tooltip" onclick="return confirm('Do you really want to Delete ?');"><i class="material-icons">&#xE872;</i></a>
                             </td>
                         </tr>
+                        <?php
+                         endforeach;
+                        ?>
                         </tbody>
                     </table>
                 </div>

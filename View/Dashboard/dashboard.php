@@ -66,7 +66,7 @@
                         <div class="dropdown-menu dropdown-menu-end position-absolute">
                             <a class="dropdown-item" href="#">Profile</a>
                             <a class="dropdown-item" href="#">Account Setting</a>
-                            <a class="dropdown-item" href="#">Log out</a>
+                            <a class="dropdown-item" href="/logout">Log out</a>
                         </div>
                     </li>
                 </ul>
@@ -173,12 +173,12 @@
                     <table id="example" class="table table-striped fs-6">
                         <thead class="fs-6">
                         <tr class="table table-dark fs-6" style="font-size: small">
-                            <th class="fs-6 fw-lighter" style="font-size: small ">Title</th>
-                            <th class="fs-6 fw-lighter">Description</th>
-                            <th class="fs-6 fw-lighter">category</th>
-                            <th class="fs-6 fw-lighter">create At</th>
-                            <th class="fs-6 fw-lighter">Status</th>
-                            <th class="fs-6 fw-lighter">Action</th>
+                            <th >Title</th>
+                            <th >Description</th>
+                            <th >category</th>
+                            <th >create At</th>
+                            <th >Status</th>
+                            <th >Action</th>
 
                         </tr>
                         </thead>
@@ -208,8 +208,9 @@
                                 </td>
 
                                 <td>
-                                    <a href="/Team/edit" class="edit" title="Edit" data-toggle="tooltip"><i
-                                                class="material-icons">&#xE254;</i></a>
+                                    <a href="/updatewiki?id=<?= $wiki['id'] ?>" class="edit" title="Edit" data-toggle="tooltip">
+                                        <i class="material-icons">&#xE254;</i>
+                                    </a>
                                     <a href="/deleteWiki?id=<?= $wiki['id'] ?>" class="delete" title="Delete" data-toggle="tooltip"
                                        onclick="return confirm('Do you really want to Delete ?');"><i
                                                 class="material-icons">&#xE872;</i></a>

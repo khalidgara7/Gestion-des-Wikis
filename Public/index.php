@@ -24,7 +24,7 @@ $route->get('/home', function () { HomeController::index(); });
 
 $route->get('/wikis', function (){WikisController::wikis(); });
 
-// Display Authentication pages.
+// Parte Authentication pages.
 
     if(isset($_SESSION['role']))
     {
@@ -38,7 +38,6 @@ $route->get('/wikis', function (){WikisController::wikis(); });
             echo "page Not Found";
         }
     }
-
 
 $route->get('/logout', function (){AuthenticationController::logout(); });
 
@@ -58,7 +57,9 @@ $route->get('/dashboard', function (){DashboardController::dashboard(); });
 // wikis
 $route->get('/formwiki', function (){DashboardController::formAddwiki(); });
 $route->post('/addwiki', function (){WikisController::Addwiki(); });
-$route->post('/deleteWiki', function (){WikisController::deletewiki(); });
+$route->get('/deleteWiki', function (){WikisController::deletewiki(); });
+$route->get('/updatewiki', function (){WikisController::formUpdateWiki(); });
+$route->post('/submitupdatewiki', function (){WikisController::updatexiki(); });
 
 // categories
 $route->get('/categories', function (){CategoriesController::categories(); });
@@ -71,7 +72,7 @@ $route->get('/deleteCategorie', function (){CategoriesController::deleteCategori
 $route->get('/tags', function (){TagsController::tags(); });
 $route->get('/Addtags', function (){TagsController::addTag(); });
 $route->post('/formtag', function (){TagsController::saveTags(); });
-$route->get('/deleteTag?id', function (){TagsController::deletetag(); });
+$route->get('/deleteTag', function (){TagsController::deletetag(); });
 
 
 

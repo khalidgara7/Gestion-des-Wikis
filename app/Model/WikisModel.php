@@ -67,4 +67,30 @@ class WikisModel
         $excutquery->execute();
     }
 
+    public function  getWiki($id){
+        try {
+            $query = "select * from wiki where id =$id";
+            $stmt = $this->data->query($query);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }catch(PDOException $e){
+            echo "error fetching wikis data :" + $e->getMessage();
+        }
+
+    }
+
+    public function wikiupdate($data)
+    {
+        extract($data);
+        $query = "update wiki set categorie_id=:categorie_id,title=:title,description=:description,content=:content
+        where id=:id";
+        $stmt = $this->data->prepare($query);
+        $stmt->bindParam(":categorie_id",$categorie,PDO::PARAM_INT);
+        $stmt->bindParam(":title",$title,PDO::PARAM_STR);
+        $stmt->bindParam(":description",$description,PDO::PARAM_STR);
+        $stmt->bindParam(":content",$content,PDO::PARAM_STR);
+        $stmt->bindParam(":id",$id,PDO::PARAM_INT );
+        $stmt->execute();
+    }
+
 }

@@ -37,7 +37,7 @@ class CategoriesController
         $id = $_GET['id'];
         $deletecategorie = new CategorieModel();
         $deletecategorie->deleteCatego($id);
-        header("location: /../../Addcategories");
+        header("location: /../../categories");
     }
 
 }

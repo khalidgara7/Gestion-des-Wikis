@@ -32,5 +32,4 @@ class TagsModel extends Model
         $excutquery->execute();
     }
 
-
 }

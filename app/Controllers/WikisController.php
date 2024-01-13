@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Model\CategorieModel;
+use App\Model\UserModel;
 use App\Model\WikisModel;
 
 class WikisController
@@ -10,7 +12,6 @@ class WikisController
     {
         $wiki = new WikisModel();
         $wikis = $wiki->fetchAllWikis();
-
         require __DIR__."/../../View/AllWikis.php";
     }
 
@@ -34,6 +35,29 @@ class WikisController
 
     }
 
+    public static function formUpdateWiki()
+    {
+        $id = $_GET['id'];
+        $categorie = new CategorieModel();
+        $categories = $categorie->fetchAllCategories();
+        $obj = new UserModel();
+        $Authors = $obj->fetchAllAuthor();
 
+        $wikiObj = new WikisModel();
+        $wiki = $wikiObj->getWiki($id);
+        require __DIR__ . "/../../View/Dashboard/updatewiki.php";
+
+    }
+
+    public static function updatexiki()
+    {
+
+            $updatewiki = new WikisModel();
+            $updatewiki->wikiupdate($_POST);
+            header("location: /../../dashboard");
+
+
+
+    }
 
 }
