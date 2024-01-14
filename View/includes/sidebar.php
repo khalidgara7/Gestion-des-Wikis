@@ -27,6 +27,9 @@
     </div>
     <nav>
         <ul>
+            <?php
+            if(isset($_SESSION['id']) && $_SESSION['role'] == "admin"):
+            ?>
             <li>
                 <a href="/dashboard">
                     <span class="rect"></span>
@@ -34,6 +37,9 @@
                     Dashboard
                 </a>
             </li>
+            <?php
+            endif;
+            ?>
             <li>
                 <a href="/home">
                     <span class="rect"></span>
@@ -41,6 +47,18 @@
                     Home
                 </a>
             </li>
+            <?php
+            if (isset($_SESSION['id']) && $_SESSION['role']=="author"):
+            ?>
+            <li class="sidebar_item active" style="width: 100%;">
+                <a href="/dashboard" class="sidebar_link">
+                    <span class="rect"></span>
+                    <span class="circle"></span>
+                    My Wikis</a>
+            </li>
+            <?php
+                endif;
+            ?>
             <li>
                 <a href="/wikis">
                     <span class="rect"></span>
@@ -48,6 +66,9 @@
                     View ALL Wikis
                 </a>
             </li>
+            <?php
+            if(!isset($_SESSION['id'])):
+            ?>
             <li>
                 <a href="/loginview">
                     <span class="rect"></span>
@@ -55,6 +76,12 @@
                      Login
                 </a>
             </li>
+            <?php
+            endif;
+            ?>
+            <?php
+            if(isset($_SESSION['id'])):
+            ?>
             <li>
                 <a href="/logout">
                     <span class="rect"></span>
@@ -62,6 +89,9 @@
                     Log-out
                 </a>
             </li>
+            <?php
+            endif;
+            ?>
         </ul>
     </nav>
     <ul class="social-icons">

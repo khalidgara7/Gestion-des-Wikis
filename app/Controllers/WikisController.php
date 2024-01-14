@@ -10,19 +10,24 @@ class WikisController
 {
     public static function wikis()
     {
-        $wiki = new WikisModel();
-        $wikis = $wiki->fetchAllWikis();
-        require __DIR__."/../../View/AllWikis.php";
+            $wiki = new WikisModel();
+            $wikis = $wiki->fetchAllWikis();
+            require __DIR__."/../../View/AllWikis.php";
+
     }
 
     public static function Addwiki()
     {
-        if(isset($_POST))
-        {
-            $addwiki = new WikisModel();
-            $addwiki->addWiki($_POST);
-            header("location: /../../dashboard");
+        if (controller::islogdin()) {
 
+            if (isset($_POST)) {
+                $addwiki = new WikisModel();
+                $addwiki->addWiki($_POST);
+                header("location: /../../dashboard");
+
+            }else{
+                header("location: /../../dashboard");
+            }
         }
     }
 

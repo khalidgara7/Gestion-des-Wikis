@@ -8,7 +8,7 @@ use PDOException;
 class TagsModel extends Model
 {
 
-    public function fetchAllCategories()
+    public function fetchAllTags()
     {
         return $this->read('tag');
     }
@@ -69,5 +69,8 @@ class TagsModel extends Model
         $nbrtags = $obj->count("tag");
         return $nbrtags;
     }
+
+
+
 
 }

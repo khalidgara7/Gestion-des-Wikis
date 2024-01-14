@@ -90,19 +90,32 @@
                                 ?>
                             </select>
                         </div>
-                        <div class="mb-4">
-                            <label class="form-label">author</label>
-                            <select class="form-control" name="user_id" id="status">
-                                <?php
+                        <?php
+                        if(isset($_SESSION['id']) && $_SESSION['role']=='admin'):
+                            ?>
+                            <div class="mb-4">
+                                <label class="form-label">author</label>
+                                <select class="form-control" name="user_id" id="status">
+                                    <?php
                                     foreach ($Authors as $author):
-                                ?>
-                                <option value="<?=$author['id']?>"><?=$author['full_Name']?></option>
+                                        ?>
+                                        <option value="<?=$author['id']?>"><?=$author['full_Name']?></option>
 
-                                <?php
+                                    <?php
                                     endforeach;
-                                ?>
-                            </select>
-                        </div>
+                                    ?>
+                                </select>
+                            </div>
+                        <?php
+                        endif;
+                        ?>
+                        <?php
+                        if(isset($_SESSION['id']) && $_SESSION['role']=='author'):
+                            ?>
+                        <input type="hidden" name="user_id" value="<?=$_SESSION['id']?>">
+                        <?php
+                        endif;
+                        ?>
                         <div class="mb-4">
                             <label class="form-label">Title</label>
                             <input type="text" name="title" class="form-control task-desc">

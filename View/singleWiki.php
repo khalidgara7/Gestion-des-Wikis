@@ -70,12 +70,44 @@ include '../View/includes/sidebar.php';
                                     <p class="card-text"><?= $wiki['description']?></p>
                                     <p class="card-text"><?= $wiki['content']?></p>
                                     <p>
-                                        <span class="badge badge-info">Bootstrap</span>
-                                        <span class="badge badge-info">Web</span>
-                                        <span class="badge badge-info">CSS</span>
-                                        <span class="badge badge-info">HTML</span>
+                                        <?php
+                                        foreach ($wikitags as $wikitag):
+                                        ?>
+                                        <span class="badge badge-info"><?=$wikitag['NAME']?></span>
+                                        <?php
+                                        endforeach;
+                                        ?>
                                     </p>
+                                    <form method="post" action="/addtagswikis" enctype="multipart/form-data">
+                                        <?php
+                                        if(isset($_SESSION['id']) && $_SESSION['id']==$wiki['user_id']):
+                                        ?>
+                                        <div class="mb-4">
+                                            <input type="hidden" name="wiki_id" value="<?=$wiki['id']?>">
+                                            <label class="form-label">SELECT TAGS</label>
+                                            <select class="form-control" name="tag_id" id="status">
+                                                <?php
+                                                foreach ($tags as $tag):
+                                                    ?>
+                                                    <option value="<?=$tag['id']?>"><?=$tag['NAME']?></option>
 
+                                                <?php
+                                                endforeach;
+                                                ?>
+                                            </select>
+                                        </div>
+
+
+                                        <button type="submit" class="btn btn-success btn-block mb-4 me-4 save">
+                                            Save Tags
+                                        </button>
+
+                                        <a href="/tags" class="btn btn-danger btn-block mb-4">Annuler</a>
+
+                                    </form>
+                                    <?php
+                                    endif;
+                                    ?>
                                 </div>
                             </div>
 

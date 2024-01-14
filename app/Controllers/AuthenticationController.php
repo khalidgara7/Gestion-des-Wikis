@@ -9,14 +9,24 @@ class AuthenticationController
     // logout function
     public static function logout(): void
     {
-        session_destroy();
-        self::loginView();
+        if(controller::islogdin()){
+            session_destroy();
+            self::loginView();
+        }else{
+            header('location: /home');
+        }
+
     } 
 
     // function login for display page login.
     public static function loginView(): void
     {
-        require __DIR__."/../../View/Login.php";
+        if(controller::islogdin()){
+            header('location: /home');
+        }else{
+            require __DIR__."/../../View/Login.php";
+
+        }
     }
     // function login for save data
 

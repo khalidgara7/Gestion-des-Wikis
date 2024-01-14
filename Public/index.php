@@ -74,5 +74,8 @@ $route->post('/submitUpdatetags', function (){TagsController::submitUpdateTags()
 
 $route->get('/singlwiki', function () {SingelPageController::singlePage();});
 
+// tagwikis
+
+$route->post('/addtagswikis', function (){SingelPageController::addtagwikis();});
 $route->dispatch($uri, $method);
 
