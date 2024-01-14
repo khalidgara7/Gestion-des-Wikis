@@ -90,4 +90,12 @@ class WikisController
         header("location: /../../dashboard");
     }
 
+    public static function searchWiki()
+    {
+        $search = $_GET['search'];
+        $wikimodel = new WikisModel();
+        $wikis = $wikimodel->searchWikis($search);
+        echo json_encode($wikis);
+    }
+
 }

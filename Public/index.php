@@ -77,5 +77,8 @@ $route->get('/singlwiki', function () {SingelPageController::singlePage();});
 // tagwikis
 
 $route->post('/addtagswikis', function (){SingelPageController::addtagwikis();});
+
+// router searching
+$route->get('/search-wikis', function(){ WikisController::searchWiki();});
 $route->dispatch($uri, $method);
 

@@ -192,6 +192,15 @@ class WikisModel
         }
     }
 
+    public function searchWikis($data)
+    {
+        $query = "SELECT * FROM wiki w WHERE w.title like :search ";
+        $stmt = $this->data->prepare($query);
+        $searchTerm = '%' . $data . '%';
+        $stmt->bindParam(":search", $searchTerm, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
 
 }

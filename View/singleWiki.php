@@ -57,18 +57,18 @@ include '../View/includes/sidebar.php';
                                  string(6) "khalid" ["NAME"]=> string(7) "gamesss" }-->
                         <section id="first-tab-group" class="tabgroup">
                             <div>
-                                <h1><?= $wiki['title']?></h1>
-                                <p class="lead"> by <a href=""><?= $wiki['full_Name']?></a>
+                                <h2> <b>Title : </b> : <?= $wiki['title']?></h2>
+                                <p> <b> By : </b> <h5><?= $wiki['full_Name']?></h5>
                                 </p>
                                 <hr>
-                                <p><i class="fa fa-calendar"></i> <?= $wiki['created_at']?> </p>
+                                <p> <b>Create AT : </b><?= $wiki['created_at']?> </p>
 
                             </div>
                             <div class="card mb-3">
                                 <img src="https://www.123effizientdabei.de/wp-content/uploads/Wiki.jpg" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <p class="card-text"><?= $wiki['description']?></p>
-                                    <p class="card-text"><?= $wiki['content']?></p>
+                                    <p class="card-text"> <span> <b>Description : </b>  </span> <?= $wiki['description']?></p>
+                                    <p class="card-text"><span> <b> Content : </b>  </span><?= $wiki['content']?></p>
                                     <p>
                                         <?php
                                         foreach ($wikitags as $wikitag):
